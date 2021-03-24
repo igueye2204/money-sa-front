@@ -1,0 +1,116 @@
+<ion-content [fullscreen]="true">
+  <div class="cadre">
+    <ion-row class="home-logo ion-justify-content-center">
+      <ion-col size="3">
+        <img src="/./assets/money_logo.png" alt="" style="
+        Width: 72px;
+        Height: 55px;
+        border-radius: 0px;
+        ">
+
+      </ion-col>
+    </ion-row >
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" style="text-align: center;">
+
+        <p class="log"><svg height="23px" viewBox="0 -4 483.6783 483" width="23px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="241.840004" x2="241.840004" y1="-27.982558" y2="508.257442"><stop offset="0" stop-color="#006df0"/><stop offset="1" stop-color="#00e7f0"/></linearGradient><path d="m481.335938 174.363281-171.679688-171.683593c-2.289062-2.285157-5.730469-2.96875-8.71875-1.730469s-4.9375 4.152343-4.9375 7.386719v67.679687c-163.398438.1875-295.816406 132.601563-296 296v96c-.00390625 3.699219 2.527344 6.917969 6.121094 7.785156 3.59375.871094 7.3125-.835937 9-4.128906l18.238281-35.519531c47.742187-93.601563 144.046875-152.414063 249.121094-152.136719h13.519531v67.683594c0 3.234375 1.949219 6.148437 4.9375 7.386719 2.988281 1.238281 6.429688.554687 8.71875-1.734376l171.679688-171.679687c3.125-3.121094 3.125-8.1875 0-11.308594zm-169.335938 158.023438v-56.371094c0-4.417969-3.582031-8-8-8h-21.519531c-111.070313-.300781-212.878907 61.863281-263.351563 160.800781l-3.128906 6.113282v-62.914063c.175781-154.566406 125.433594-279.820313 280-280h8c4.417969 0 8-3.578125 8-8v-56.367187l152.367188 152.367187zm0 0" fill="url(#a)"/></svg> Retrait</p>
+
+        <div class="outline"></div>
+
+      </ion-col>
+    </ion-row>
+
+  </div>
+
+
+
+  <div class="form ion-justify-content-center">
+
+  <form class="form ion-justify-content-center" [formGroup]="contactForm"  novalidate>
+      <ion-item>
+        <ion-label position="floating">Code</ion-label>
+        <ion-input formControlName="codeTransaction"  (keyup)="check()" type=text></ion-input>
+      </ion-item>
+  </form>
+
+  <div class="libelle">
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-button fill="clear" (click)="show0()" ><p>Bénéficiaire</p></ion-button>
+          <div class="outline-orange-active" *ngIf="!isHidden"></div>
+      </ion-col>
+      <ion-col >
+        <ion-button fill="clear" type="button" (click)="showAndHide()" ><p>Emetteur</p></ion-button>
+          <div class="outline-orange-active" *ngIf="isHidden"></div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <form class="form ion-justify-content-center" id="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <ion-list>
+    <div class="page" id="page1" *ngIf="!isHidden">
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <ion-input formControlName="cni" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Prenom</ion-label>
+          <ion-input formControlName="prenom" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="nom" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Montant à recevoir</ion-label>
+          <ion-input formControlName="montant" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input formControlName="telephone" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Date d'envoi</ion-label>
+          <ion-input formControlName="date" type=text></ion-input>
+        </ion-item>
+
+
+        <ion-button type="button" class="bsend" (click)="showAndHide()" color="--ion-color-vibrant" shape="round" > Valider</ion-button>
+
+      </div>
+      <div class="page" id="page2" *ngIf="isHidden">
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <ion-input formControlName="cni1" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Prenom</ion-label>
+          <ion-input formControlName="prenom1" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="nom1" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Téléphone</ion-label>
+          <ion-input formControlName="telephone1" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Montant envoyé</ion-label>
+          <ion-input formControlName="montant1" type=text></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Date d'envoi</ion-label>
+          <ion-input formControlName="date1" type=text></ion-input>
+        </ion-item>
+
+        <ion-button class="bsend" color="--ion-color-vibrant" (click)="onSubmit()" shape="round" > Valider</ion-button>
+
+      </div>
+
+      </ion-list>
+    </form>
+
+  </div>
+  </ion-content>

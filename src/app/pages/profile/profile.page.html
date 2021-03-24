@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="row border border-light  p-3 shadow-lg bg-white justify-content-center" class="shadow p-3 mb-5 bg-white" *ngFor="let user of User">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="8">
+        <img [src]="imgSrc" class="rounded-circle border" style="width: 170px; height: 170px;" >
+        <br>
+
+        <h3 class="display-9">
+          <strong style="color: #07AEEF;">{{ user.username }}</strong>
+        </h3>
+
+      </ion-col>
+    </ion-row>
+    <br>
+    <div class="row w-100" style="font-size:large;" >
+      <p>
+        <strong style="color: #FA4A0C;" >Prenom </strong>
+        <br>
+        {{ user.prenom }}
+      </p>
+      <p>
+        <strong style="color: #FA4A0C;">Nom </strong>
+        <br>
+        {{ user.nom }}
+      </p>
+      <p >
+        <strong style="color: #FA4A0C;">Numéro de Tel</strong>
+        <br>
+        {{  user.phone }}
+      </p>
+      <strong style="color: #FA4A0C;">Roles </strong>
+      <ul>
+        <li >
+          {{ currentUser.roles }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</ion-content>

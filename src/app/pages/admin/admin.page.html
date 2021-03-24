@@ -1,0 +1,65 @@
+<ion-content>
+    <ion-row class="ion-justify-content-center">
+      <div class=" cadre-logo"  *ngFor="let post of solde">
+
+          <p>Mon solde disponible</p>
+
+          <div class="price">
+            <h2>{{post.solde}}</h2><p>fcfa</p>
+          </div>
+
+          <div class="update">
+            <p>Mise à jour à .....</p>
+          </div>
+
+      </div>
+    </ion-row>
+</ion-content>
+
+  <ion-list scrollEvents="true" class="list">
+
+    <ion-item detail>
+      <ion-label>
+        <ion-icon name="arrow-redo-outline"></ion-icon> Dépôt
+      </ion-label>
+    </ion-item>
+
+    <ion-item (click)="buttonClick()" detail>
+      <ion-label>
+        <ion-icon name="arrow-undo-outline"></ion-icon> Retrait
+      </ion-label>
+    </ion-item>
+
+
+    <ion-item (click)="buttonClick()" detail>
+      <ion-label>
+        <ion-icon name="md-swap"></ion-icon>  Mes transactions
+      </ion-label>
+    </ion-item>
+
+    <ion-item (click)="buttonClick()" detail>
+      <ion-label>
+        <ion-icon name="checkmark-circle-outline"></ion-icon> Toutes mes transactions
+      </ion-label>
+    </ion-item>
+
+    <ion-item (click)="buttonClick()" detail>
+      <ion-label>
+        <ion-icon name="md-albums"></ion-icon> Mes commissions
+      </ion-label>
+    </ion-item>
+
+    <ion-item (click)="buttonClick()" detail>
+      <ion-label>
+        <ion-icon name="calculator"></ion-icon> Calculateur de frais
+      </ion-label>
+    </ion-item>
+
+    <ion-item (click)="buttonClick()" detail>
+      <ion-label>
+        <ion-icon name="log-out-outline"></ion-icon> Deconnexion
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+

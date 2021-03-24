@@ -1,0 +1,49 @@
+<ion-content>
+  <div class="cadre-logo">
+    <ion-row class="ion-justify-content-center">
+
+      <ion-col size="6">
+        <img src="/./assets/money_logo.png" alt="" style="
+        Width: 155px;
+        Height: 125px;
+        border-radius: 0px;
+        margin-top:20px;
+        ">
+      </ion-col>
+    </ion-row >
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" style="text-align: center;">
+
+        <p class="log">Login</p>
+
+        <div class="outline"></div>
+
+      </ion-col>
+    </ion-row>
+  </div>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <ion-list no-lines>
+      <ion-item >
+        <ion-input type="text" id="email" name="username" formControlName="username" Placeholder="Username" required ></ion-input>
+        <small class="text-danger" *ngIf="(f.username.touched || submitted) && f.username.errors?.required"> Username invalide</small>
+      </ion-item>
+
+      <ion-item >
+        <ion-input type="password" id="password" name="password" formControlName="password" minlength="6" Placeholder="Password" required ></ion-input>
+        <small class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.required"> Password invalide</small>
+        <small class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+          Login failed: {{ errorMessage }}
+        </small>
+      </ion-item>
+    </ion-list>
+
+
+    <div class="form-group">
+      <ion-button type="button" expand="block" fill="outline" class="bConnexion"  (click)="onSubmit()"  shape="round" > Connexion </ion-button>
+    </div>
+  </form>
+</ion-content>
+<div>
+
+</div>
