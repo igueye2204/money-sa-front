@@ -38,7 +38,7 @@
       <ion-icon name="md-home" color="black"></ion-icon>
     </ion-tab-button>
 
-    <ion-tab-button routerLink="transaction">
+    <ion-tab-button routerLink="transaction" *ngIf="adminAgence || userAgence">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="22" height="22" x="0" y="0" viewBox="0 0 448 448" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
         <g xmlns="http://www.w3.org/2000/svg">
           <g>
@@ -81,7 +81,7 @@
         </g></svg>
     </ion-tab-button>
 
-    <ion-tab-button routerLink="commission">
+    <ion-tab-button routerLink="commission" *ngIf="adminAgence || userAgence">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="22" height="22" x="0" y="0" viewBox="0 0 354.796 354.796" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
         <g xmlns="http://www.w3.org/2000/svg">
           <g id="Layer_5_58_">
@@ -130,7 +130,7 @@
         </g></svg>
     </ion-tab-button>
 
-    <ion-tab-button routerLink="calculateur">
+    <ion-tab-button routerLink="calculateur" *ngIf="adminAgence || userAgence">
       <ion-icon ios="ios-calculator" color="black" md="md-calculator"></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>

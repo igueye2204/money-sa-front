@@ -1,0 +1,110 @@
+<ion-content [fullscreen]="true">
+  <div >
+    <ion-row class="home-logo ion-justify-content-center">
+      <ion-col size="6">
+        <img [src]="imgSrc"  class="rounded-circle border" style="width: 152px; height: 152px;" >
+      </ion-col>
+    </ion-row >
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="6" style="text-align: center;">
+
+      </ion-col>
+    </ion-row>
+
+  </div>
+
+  <div class="libelle">
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <ion-button fill="clear" (click)="show0()" ><p>Contact</p></ion-button>
+          <div class="outline-orange-active" *ngIf="!isHidden"></div>
+      </ion-col>
+      <ion-col >
+        <ion-button fill="clear" type="button" (click)="showAndHide()" ><p>Coordonnées</p></ion-button>
+          <div class="outline-orange-active" *ngIf="isHidden"></div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="form">
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+  <ion-list>
+    <div class="page" id="page1" *ngIf="!isHidden" >
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input formControlName="username" type=text></ion-input>
+          <small class="text-danger" *ngIf="(f.username.touched || submitted) && f.username.errors?.required"> username est requis</small>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Prenom</ion-label>
+          <ion-input formControlName="prenom" type=text></ion-input>
+          <small class="text-danger" *ngIf="(f.prenom.touched || submitted) && f.prenom.errors?.required"> prenom est requis</small>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="nom" type=text></ion-input>
+          <small class="text-danger" *ngIf="(f.nom.touched || submitted) && f.nom.errors?.required"> nom est requis</small>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input  formControlName="password" type=password></ion-input>
+          <small class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.required"> mot de passe est requis</small>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">ConfirmPassword</ion-label>
+          <ion-input  formControlName="confirmPassword" type=password></ion-input>
+          <small class="text-danger" *ngIf="(f.confirmPassword.touched || submitted) && f.confirmPassword.errors?.required">  mot de passe est requis</small>
+        </ion-item>
+
+        <ion-button class="bsend" color="--ion-color-primary" (click)="showAndHide()" expand="block" fill="outline" shape="round"> Suivant</ion-button>
+        <ion-button class="bsend" (click)="onSubmit()"  color="--ion-color-vibrant" expand="block" fill="outline" style="margin-bottom:20px" shape="round" > Valider </ion-button>
+
+      </div>
+      <div class="page" id="page2" *ngIf="isHidden">
+
+        <ion-item>
+          <ion-input formControlName="cni" placeholder="N°CNI"  type=text></ion-input>
+          <small class="text-danger" *ngIf="(f.cni.touched || submitted) && f.cni.errors?.required">  mot de passe est requis</small>
+        </ion-item>
+
+        <ion-item>
+          <ion-input formControlName="address" placeholder="adresse" type=text></ion-input>
+          <small class="text-danger" *ngIf="(f.address.touched || submitted) && f.address.errors?.required">  Saisir l'adresse</small>
+        </ion-item>
+        <ion-item>
+          <ion-label>Profil</ion-label>
+          <ion-select formControlName="profil">
+            <ion-select-option *ngFor="let item of profil" [value]="item">{{ item.libelle }}</ion-select-option>
+          </ion-select>
+          <small class="text-danger" *ngIf="(f.profil.touched || submitted) && f.profil.errors?.required">  choisir profil</small>
+        </ion-item>
+        <ion-item>
+          <ion-input type="file"  accept="image/*"  (change)="onFileSelect($event)" name="avatar" formControlName="avatar"></ion-input>
+          <small class="text-danger" *ngIf="(f.avatar.touched || submitted) && f.avatar.errors?.required">  avatar requis</small>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="phone" placeholder="N°Téléphone" type=text></ion-input>
+          <small class="text-danger" *ngIf="(f.phone.touched || submitted) && f.phone.errors?.required"> numéro téléphone est requis</small>
+        </ion-item>
+        <ion-button class="bsend" color="--ion-color-vibrant" (click)="onSubmit()" expand="block" fill="outline" shape="round"> Valider</ion-button>
+
+      </div>
+      </ion-list>
+
+      <ng-container *ngIf="isSignUpFailed" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+        <p class="text-center alert alert-danger p-2 rounded">
+         {{errorMessage}}
+        </p>
+
+      </ng-container>
+
+       <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+        <p class="text-center alert alert-success p-2 rounded">
+          Vous avez créer un nouveau utilisateur avec succés!
+        </p>
+       </ng-container>
+    </form>
+
+  </div>
+  </ion-content>

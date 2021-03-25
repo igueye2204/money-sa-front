@@ -17,6 +17,8 @@ export class HomePage implements OnInit {
   roles: string;
   adminAgence = false;
   admin = false;
+  caissier = false;
+  userAgence = false;
 
 
   constructor(private userService: UserService, private tokenStorage: TokenStorageService, private navcontroler: NavController) { }
@@ -30,12 +32,34 @@ export class HomePage implements OnInit {
          this.roles = this.tokenStorage.getInfoUser().roles[0];
         // @ts-ignore
         console.log(this.roles);
-        if (this.roles === 'ROLE_ADMINAGENCE') {
-          this.adminAgence = true;
+        // if (this.roles === 'ROLE_ADMINAGENCE') {
+        //   this.adminAgence = true;
+        // }
+        switch (this.roles) {
+          
+          case 'ROLE_ADMINAGENCE':{
+            this.adminAgence = true;
+            break;
+          }
+          case 'ROLE_ADMIN':{
+            this.admin = true;
+            break;
+          }
+          case 'ROLE_CAISSIER':{
+            this.caissier = true;
+            break;
+          }
+          case 'ROLE_USERAGENCE':{
+            this.userAgence = true;
+            break;
+          }
+          default:
+            break;
         }
-        if(this.roles === 'ROLE_ADMIN'){
-          this.admin = true;
-        }
+
+        // if(this.roles === 'ROLE_ADMIN'){
+        //   this.admin = true;
+        // }
         //@ts-ignore
         this.userService.getUserById(this.id).subscribe(
           (data)=>{

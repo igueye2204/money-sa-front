@@ -10,6 +10,10 @@ export class UserService {
 
   constructor( private http: HttpClient) { }
 
+  postUser(formData:any): Observable<any>{
+    return this.http.post(API_URL, formData, {responseType: 'json'});
+  }
+
   getSolde(id:number):Observable<any> {
 
     return this.http.get(API_URL + '/solde/' + id, { responseType: 'json'});

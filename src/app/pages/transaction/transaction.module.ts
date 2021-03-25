@@ -7,9 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { TransactionPageRoutingModule } from './transaction-routing.module';
 
 import { TransactionPage } from './transaction.page';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   imports: [
@@ -17,10 +16,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     FormsModule,
     IonicModule,
     TransactionPageRoutingModule,
-    NgxDatatableModule
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+    JwPaginationModule
   ],
   declarations: [TransactionPage]
 })

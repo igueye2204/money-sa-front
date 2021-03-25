@@ -50,6 +50,18 @@ const routes: Routes = [
   {
     path: 'create-compte',
     loadChildren: () => import('./pages/create-compte/create-compte.module').then( m => m.CreateComptePageModule)
+  },
+  {
+    path: 'create-user',
+    loadChildren: () => import('./pages/create-user/create-user.module').then( m => m.CreateUserPageModule)
+  },
+  {
+    path: 'list-users',
+    loadChildren: () => import('./pages/list-users/list-users.module').then( m => m.ListUsersPageModule)
+  },
+  {
+    path: 'list-agence',
+    loadChildren: () => import('./pages/list-agence/list-agence.module').then( m => m.ListAgencePageModule)
   }
 
 ];

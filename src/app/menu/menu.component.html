@@ -2,22 +2,22 @@
   <ion-content>
     <ion-list>
       <ion-item class="d-flex" routerLink="home" *ngFor="let user of User">
-        <img [src]="imgSrc" alt="" style="height: 40px; width: 40px; border-radius:50%; size:15px">
-         <ion-item><p>{{user.prenom}} {{user.nom}}</p></ion-item>
+        <img [src]="imgSrc" alt="" style="height: 40px; width: 40px; border-radius:50%; size:15px; padding-bottom:3px">
+         <ion-col><h1>{{user.prenom}} {{user.nom}}</h1></ion-col>
       </ion-item>
       <ion-item routerLink="home">
         <ion-icon name="md-home" color="black"></ion-icon> Home
       </ion-item>
-      <ion-item routerLink="transaction">
+      <ion-item routerLink="transaction" *ngIf="adminAgence || userAgence">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" focusable="false" viewBox="0 0 12 12" >
           <path fill="currentColor" d="M6 0a6 6 0 11-6 6 .5.5 0 011 0 5 5 0 105-5c-1.24 0-2.333.418-3.356 1.436l.71.71A.5.5 0 013 4H1a.5.5 0 01-.5-.5v-2a.5.5 0 01.854-.354l.584.583C3.153.521 4.496 0 6 0zm-.5 3a.5.5 0 01.492.41L6 3.5v2.793l1.854 1.853a.5.5 0 01.057.638l-.057.07a.5.5 0 01-.638.057l-.07-.057-2-2a.5.5 0 01-.14-.275L5 6.5v-3a.5.5 0 01.5-.5z"/>
         </svg> Transactions
       </ion-item>
-      <ion-item routerLink="calculateur">
+      <ion-item routerLink="calculateur" *ngIf="adminAgence || userAgence">
         <ion-icon ios="ios-calculator" color="black" md="md-calculator"></ion-icon> Calculateur
       </ion-item>
       <ion-item style="margin-top: 200px;" >
-       <ion-button routerLink="/" fill="clear" size="medium" (click)="logout()" ><ion-icon name="log-out-outline"></ion-icon> Deconnextion</ion-button>
+       <ion-button href="login" fill="clear" size="medium" (click)="logout()" ><ion-icon name="log-out-outline"></ion-icon> Deconnextion</ion-button>
       </ion-item>
     </ion-list>
   </ion-content>

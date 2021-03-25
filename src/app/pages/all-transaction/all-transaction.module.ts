@@ -8,6 +8,7 @@ import { AllTransactionPageRoutingModule } from './all-transaction-routing.modul
 
 import { AllTransactionPage } from './all-transaction.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     IonicModule,
     AllTransactionPageRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    JwPaginationModule
   ],
   declarations: [AllTransactionPage]
 })

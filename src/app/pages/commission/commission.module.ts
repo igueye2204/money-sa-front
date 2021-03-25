@@ -8,6 +8,7 @@ import { CommissionPageRoutingModule } from './commission-routing.module';
 
 import { CommissionPage } from './commission.page';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     IonicModule,
     CommissionPageRoutingModule,
-    NgxPaginationModule
+    JwPaginationModule
   ],
   declarations: [CommissionPage]
 })

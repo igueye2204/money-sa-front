@@ -21,7 +21,7 @@
       </ion-col>
     </ion-row>
   </div>
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="contactForm" *ngIf="!isLoggedIn" (ngSubmit)="onSubmit()" class="form" novalidate>
 
     <ion-list no-lines>
       <ion-item >

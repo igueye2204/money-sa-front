@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MenuComponent } from './menu/menu.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -22,6 +23,7 @@ import { MenuComponent } from './menu/menu.component';
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    JwPaginationModule
     ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

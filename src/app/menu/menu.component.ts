@@ -14,6 +14,12 @@ export class MenuComponent implements OnInit {
   isLoggedIn = false;
   User: any;
   imgSrc: string;
+  roles: any;
+  adminAgence: boolean;
+  admin: boolean;
+  caissier: boolean;
+  userAgence: boolean;
+  
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -23,8 +29,31 @@ export class MenuComponent implements OnInit {
       // @ts-ignore
     this.id = this.tokenStorageService.getInfoUser().id;
       // @ts-ignore
-    console.log(this.id);
-    console.log(this.tokenStorageService.getUser())
+      this.roles = this.tokenStorageService.getInfoUser().roles[0];
+      // @ts-ignore
+      console.log(this.roles);
+
+      switch (this.roles) {
+
+        case 'ROLE_ADMINAGENCE':{
+          this.adminAgence = true;
+          break;
+        }
+        case 'ROLE_ADMIN':{
+          this.admin = true;
+          break;
+        }
+        case 'ROLE_CAISSIER':{
+          this.caissier = true;
+          break;
+        }
+        case 'ROLE_USERAGENCE':{
+          this.userAgence = true;
+          break;
+        }
+        default:
+          break;
+      }
     //@ts-ignore
     this.userService.getUserById(this.id).subscribe(
       (data)=>{

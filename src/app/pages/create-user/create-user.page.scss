@@ -1,8 +1,7 @@
 .cadre{
-  height: 145px;
+  position: relative;
+  height: 125px;
   width: 100%;
-  left: 0px;
-  top: -12px;
   border-radius: 0px  0px 30px 30px;
   background-color: white;
 }
@@ -15,12 +14,11 @@ ion-content{
   font-size: 16px;
   line-height: 22px;
   color: #E5E5E5;
-  margin: 0;
 }
 
 .outline{
   position: relative;
-  top: -8px;
+  top: -10px;
   height: 3px;
   width: 100%;
   bottom: 0px;
@@ -28,47 +26,44 @@ ion-content{
   background: #07AEEF;
 }
 
-.outline-orange-active{
-  position: relative;
-  top: -5px;
-  height: 2px;
-  width: 65%;
-  border-radius: 40px;
-  background: #FA4A0C;
-  margin-left: 30px;
-}
+// .outline-orange-active{
+//   position: relative;
+//   top: -21px;
+//   height: 2px;
+//   border-radius: 40px;
+//   background: #FA4A0C;
+//   margin-left: 30px;
+// }
 ion-button{
   color:black;
   line-height: 80px;
   font-weight: bolder;
 }
-ion-row{
-  padding-top: 20px;
-
-}
 ion-icon{
   --ion-color-secondary-tint:
 }
-
+.home-logo
+{
+  padding-top: 20px;
+}
 
 .log{
   color: #22497C;
   position: relative;
-  font-size: medium;
+  font-size: large;
 }
 .libelle{
   position: relative;
-  height: 55px;
+  height: 40px;
   width: 100%;
-  top: 12px;
+  top: 10px;
   border-radius: 30px;
   background-color: white;
   text-align: center;
 }
-ion-input{
-  width: 75%;
-  display: inline-block;
-  line-height: 5px;
+
+ion-item{
+  height: 60px !important;
 }
 .form
 {
@@ -76,22 +71,16 @@ ion-input{
   width: 100%;
   position: relative;
   padding: 20px;
+  padding-bottom: 40px;
   padding-top: 0%;
   top: 13px;
 }
-.bConnexion
-{
-  text-align:center;
-  left:50%;
-  right:50%;
-  color: #51BFD0;
-}
+
 .bsend
 {
-  margin-top: 40px;
+  margin-top: 20px;
   background-color: #FA4A0C;
   border-radius: 30px;
+  width: 100%;
   color: #E5E5E5;
 }
-
-

@@ -73,78 +73,31 @@
 
   <div class="form ion-justify-content-center">
 
-
       <ion-grid class="ion-text-center">
 
         <ion-row class="header-row" style="font-weight: bolder;">
-          <ion-col>
-            <ion-text>Date</ion-text>
-          </ion-col>
 
-          <ion-col>
-            <ion-text>Type</ion-text>
-          </ion-col>
+          <ion-col>Date</ion-col>
 
-          <ion-col>
-            <ion-text>Montant</ion-text>
-          </ion-col>
+          <ion-col>Type</ion-col>
+
+          <ion-col>Montant</ion-col>
+
         </ion-row>
 
+        <ion-row  *ngFor="let post of pageOfItems ">
 
-        <div *ngFor="let post of transaction ">
+          <ion-col>{{post.dateTransaction | date: 'dd/MM/yyyy'}}</ion-col>
 
-          <ion-row >
-            <ion-col>
-              <ion-text>
-                  {{post.dateTransaction | date: 'dd/MM/yyyy'}}
-              </ion-text>
-            </ion-col>
+            <ion-col>{{post.type}}</ion-col>
 
-              <ion-col>
-                <ion-text>
-                  {{post.type}}
-                </ion-text>
-              </ion-col>
+            <ion-col>{{post.montant}}</ion-col>
 
-              <ion-col>
-                <ion-text>
-                  {{post.montant}}
-                </ion-text>
-              </ion-col>
-          </ion-row>
-        </div>
+        </ion-row>
         <div class="d-flex justify-content-center">
-          <ngx-datatable
-          class="material"
-          [limit]="7"
-          [rows]="rows"
-          [rowHeight]="60"
-          [columns]="col"
-          [columnMode]="'force'"
-          [sortType]="'multi'"
-          [headerHeight]="60"
-          [footerHeight]="60">
-      </ngx-datatable>
+          <jw-pagination [items]="transaction" style="padding:15px; float:left; display:flex;" (changePage)="onChangePage($event)" class="pagination" [pageSize]="6"></jw-pagination>
         </div>
       </ion-grid>
-
-  </div>
+    </div>
   </ion-content>
-  <ion-tabs >
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button href="/home">
-        <ion-icon name="md-home" color="black"></ion-icon>
-      </ion-tab-button>
-
-      <ion-tab-button routerLink="">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" focusable="false" viewBox="0 0 12 12" >
-          <path fill="currentColor" d="M6 0a6 6 0 11-6 6 .5.5 0 011 0 5 5 0 105-5c-1.24 0-2.333.418-3.356 1.436l.71.71A.5.5 0 013 4H1a.5.5 0 01-.5-.5v-2a.5.5 0 01.854-.354l.584.583C3.153.521 4.496 0 6 0zm-.5 3a.5.5 0 01.492.41L6 3.5v2.793l1.854 1.853a.5.5 0 01.057.638l-.057.07a.5.5 0 01-.638.057l-.07-.057-2-2a.5.5 0 01-.14-.275L5 6.5v-3a.5.5 0 01.5-.5z"/>
-        </svg>
-      </ion-tab-button>
-
-      <ion-tab-button routerLink="">
-        <ion-icon ios="ios-calculator" color="black" md="md-calculator"></ion-icon>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
 

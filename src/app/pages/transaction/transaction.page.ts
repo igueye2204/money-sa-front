@@ -13,15 +13,19 @@ export class TransactionPage implements OnInit {
 
   id: any;
   transaction: any;
-  page = 1;
-  count = 0;
-  tableSize = 10;
+  currentPage = 1;
+  pageOfItems: Array<any>;
 
   constructor(private transactionService: TransactionService, private tokenStorage:TokenStorageService) { }
 
   ngOnInit() {
 
    this.fetchPosts();
+  }
+
+  onChangePage(pageOfItems){
+    // update current page of items
+    this.pageOfItems = pageOfItems;
   }
 
   fetchPosts(){
@@ -37,15 +41,5 @@ export class TransactionPage implements OnInit {
     )
   }
 
-  onTableDataChange(event: number){
-    this.page = event;
-    this.fetchPosts();
-  }
-
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.fetchPosts();
-  }
 
 }
